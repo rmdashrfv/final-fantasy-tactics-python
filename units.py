@@ -1,6 +1,5 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
-print('modules loaded!\n.\n.\n.')
 
 class Unit():
     def __init__(self, name):
@@ -80,18 +79,15 @@ def check_levels(unit):
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 
-# name, damage, rng, jp_cost, mp_cost, ct_cost
-throw_stone = abl.Ability('Throw Stone', 10, 3, 10, 0, 5)
-longsword = eqt.Weapon('Longsword', 'sword', 10, 0)
-
 
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
 print(unit2.hp)
 
-throw_stone.learn_ability(unit1)
-longsword.equip_item(unit1)
+abl.ALL_ABILITIES[0].learn_ability(unit1)
+eqt.ALL_WEAPONS[0].equip_item(unit1)
 
 unit1.report()
+print(eqt.ALL_WEAPONS)
 # print(unit1.equipment['left'])

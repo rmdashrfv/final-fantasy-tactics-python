@@ -1,6 +1,7 @@
+ALL_WEAPONS = []
+
 class Equipment():
     pass
-
 
 class Weapon():
     def __init__(self, name, wp_type, atk, defense):
@@ -8,6 +9,7 @@ class Weapon():
         self.wp_type = wp_type
         self.atk = atk
         self.defense = defense
+        ALL_WEAPONS.append(self)
 
     def equip_item(self, unit):
         unit.equipment['left'] = self
@@ -25,3 +27,5 @@ class Helm():
 
 class Shoes():
     pass
+
+longsword = Weapon('Longsword', 'sword', 10, 0)
