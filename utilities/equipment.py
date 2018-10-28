@@ -10,6 +10,10 @@ class Weapon():
         self.atk = atk
         self.defense = defense
         ALL_WEAPONS.append(self)
+    
+
+    def __repr__(self):
+        return f'{self.name}'
 
     def equip_item(self, unit):
         unit.equipment['left'] = self
@@ -29,3 +33,4 @@ class Shoes():
     pass
 
 longsword = Weapon('Longsword', 'sword', 10, 0)
+iron_sword = Weapon('Iron Sword', 'sword', 15, 0)
