@@ -7,6 +7,18 @@ class Stage():
         self.size = size
         self.units = []
 
+class Tile():
+    def __init__(self, id, height, terrain):
+        self.id = id # ex. A1, B5, etc
+        self.height = 0
+        self.terrain = terrain
+        self.vacant = True
+        self.traversable = True
+        self.effects = {}
+
+    def __repr__(self):
+        return f'{self.terrain} ({self.id})'
+
 
 # 0 = black, 1 = green, 2 = gray
 # traverse tiles = 1, 2
