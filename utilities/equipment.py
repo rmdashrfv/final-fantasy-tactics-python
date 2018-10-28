@@ -27,11 +27,16 @@ class Armor():
         self.mp = mp
         self.arm_type = arm_type
         ARMOR.append(self)
+    
+    def __repr__(self):
+        return f'{self.name} ({self.arm_type})'
 
     def equip_item(self, unit):
         unit.equipment['armor'] = self
         unit.maxhp += self.hp
         unit.maxmp += self.mp
+        unit.hp += self.hp
+        unit.mp += self.mp
         print(f'{self.name} equipped')
 
 
@@ -46,6 +51,6 @@ class Shoes():
 
 longsword = Weapon('Longsword', 'Sword', 10)
 iron_sword = Weapon('Iron Sword', 'Sword', 15)
-leather = Armor('Leather Armor', 10, 0, 'Heavy Armor')
-linen_cur = Armor('Linen Cuirass', 20, 0, 'Heavy Armor')
-bronze_armor = Armor('Bronze Armor', 30, 0, 'Heavy Armor')
+leather = Armor('Leather Armor', 10, 0, 'Heavy')
+linen_cur = Armor('Linen Cuirass', 20, 0, 'Heavy')
+bronze_armor = Armor('Bronze Armor', 30, 0, 'Heavy')

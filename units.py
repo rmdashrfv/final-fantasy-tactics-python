@@ -1,5 +1,7 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
+from stages import buildStage as build
+build.build_stage()
 
 class Unit():
     def __init__(self, name):
@@ -81,6 +83,7 @@ unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 
 
+# eqt.ARMOR[2].equip_item(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
@@ -89,9 +92,8 @@ print(unit2.hp)
 
 abl.ABILITIES[0].learn_ability(unit1)
 eqt.WEAPONS[0].equip_item(unit1)
-eqt.ARMOR[2].equip_item(unit1)
-print(unit1.maxhp)
 
 unit1.report()
-print(eqt.WEAPONS)
+# print(unit1.equipment)
+# print(eqt.ARMOR)
 # print(unit1.equipment['left'])
