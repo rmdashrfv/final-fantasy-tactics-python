@@ -86,9 +86,9 @@ unit1.attack(unit2)
 unit1.attack(unit2)
 print(unit2.hp)
 
-abl.ALL_ABILITIES[0].learn_ability(unit1)
-eqt.ALL_WEAPONS[0].equip_item(unit1)
+abl.ABILITIES[0].learn_ability(unit1)
+eqt.WEAPONS[0].equip_item(unit1)
 
 unit1.report()
-print(eqt.ALL_WEAPONS)
+print(eqt.WEAPONS)
 # print(unit1.equipment['left'])

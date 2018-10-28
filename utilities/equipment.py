@@ -1,4 +1,4 @@
-ALL_WEAPONS = []
+WEAPONS = []
 
 class Equipment():
     pass
@@ -9,7 +9,7 @@ class Weapon():
         self.wp_type = wp_type
         self.atk = atk
         self.defense = defense
-        ALL_WEAPONS.append(self)
+        WEAPONS.append(self)
     
 
     def __repr__(self):

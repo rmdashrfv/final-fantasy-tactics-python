@@ -1,4 +1,4 @@
-ALL_ABILITIES = []
+ABILITIES = []
 
 class Ability():
     def __init__(self, name, damage, rng, jp_cost, mp_cost, ct_cost):
@@ -11,7 +11,7 @@ class Ability():
             'ct_cost': ct_cost
         }
         self.units = []
-        ALL_ABILITIES.append(self)
+        ABILITIES.append(self)
 
     def learn_ability(self, unit):
             print(f'{unit.name} learned {self.name}!')
