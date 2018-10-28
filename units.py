@@ -21,6 +21,10 @@ class Unit():
             'armor': None,
             'shoes': None
         }
+        self.level = 1
+        self.exp = 0
+        self.jp = 0
+        self.ct = 5
 
     def __repr__(self):
         return f'{self.name} >> {self.job} ({self.hp})HP'
@@ -36,6 +40,7 @@ class Unit():
         dmg = self.strength - target.defense
         target.hp = target.hp - dmg
         print(f'{self.name} attacked {target.name}!')
+        reward_units(self, target)
         # print(f'{target.name} lost {dmg} HP')
         if target.hp < (target.maxhp / 2) and target.hp > 0:
             target.status = 'critical'
@@ -43,6 +48,9 @@ class Unit():
         elif target.hp <= 0:
             target.status = 'felled'
             print(f'{target.name} has fallen!')
+
+    def report(self):
+        print(f'[{self.name}]\nEXP: {self.exp}\nJP: {self.jp}')
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass
@@ -53,8 +61,21 @@ class Chemist():
         self.defense = 3
         self.mp = 15
 
-    
 
+def reward_units(unit1, unit2):
+    if unit1.level == unit2.level:
+        exp_reward = 1
+    else:
+        exp_reward = 10
+    unit1.exp += exp_reward
+    check_levels(unit1)
+
+
+def check_levels(unit):
+    if unit.exp > 2 and unit.exp < 5:
+        unit.level = 2
+        print(f'{unit.name} leveled up!')
+    
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 
@@ -66,9 +87,10 @@ longsword = eqt.Weapon('Longsword', 'sword', 10, 0)
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
-unit1.attack(unit2)
 print(unit2.hp)
 
 throw_stone.learn_ability(unit1)
 longsword.equip_item(unit1)
-print(unit1.equipment['left'].atk)
+
+unit1.report()
+# print(unit1.equipment['left'])
