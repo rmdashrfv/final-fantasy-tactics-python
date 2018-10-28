@@ -9,6 +9,11 @@ class Stage():
 
 
 # 0 = black, 1 = green, 2 = gray
+# traverse tiles = 1, 2
+# obstacle tiles = 0
+# include mapping for positioning -- A-Z for cols, 1-26 for rows
+# at any moment, you should be able to call a unit's current_pos
+# tiles do have properties
 stage1 = {
     'schema': [[2, 2, 2, 0, 1, 1, 1, 1, 2, 2, 2, 1],
                [1, 1, 2, 0, 0, 1, 2, 0, 1, 1, 1, 1],
