@@ -13,7 +13,7 @@ class Weapon():
     
 
     def __repr__(self):
-        return f'{self.name}'
+        return f'{self.name} ({self.wp_type})'
 
     def equip_item(self, unit):
         unit.equipment['left'] = self

@@ -83,6 +83,7 @@ unit2 = Unit('Delita')
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
+unit1.attack(unit2)
 print(unit2.hp)
 
 abl.ALL_ABILITIES[0].learn_ability(unit1)
