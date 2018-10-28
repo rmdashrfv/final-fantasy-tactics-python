@@ -1,3 +1,6 @@
+from utilities import abilities as abl
+from utilities import equipment as eqt
+
 class Unit():
     def __init__(self, name):
         self.name = name
@@ -52,12 +55,20 @@ class Chemist():
 
     
 
-
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
+
+# name, damage, rng, jp_cost, mp_cost, ct_cost
+throw_stone = abl.Ability('Throw Stone', 10, 3, 10, 0, 5)
+longsword = eqt.Weapon('Longsword', 'sword', 10, 0)
+
 
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
 unit1.attack(unit2)
 print(unit2.hp)
+
+throw_stone.learn_ability(unit1)
+longsword.equip_item(unit1)
+print(unit1.equipment['left'].atk)
