@@ -10,7 +10,7 @@ I need a way to track a unit's current position on a stage
 current_pos
 function update_pos
 
-how to measure distance of tiles?
+how to measure distance of tiles? Distance would be the distance in the tile id's number and letter in alphabet
 do units belong to a given tile?
 
 ## Next

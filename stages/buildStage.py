@@ -7,6 +7,9 @@ class Stage():
         self.size = size
         self.units = []
 
+    def create_stage(map_data):
+        print(map_data)
+
 class Tile():
     def __init__(self, id, height, terrain):
         self.id = id # ex. A1, B5, etc
