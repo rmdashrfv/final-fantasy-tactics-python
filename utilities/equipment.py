@@ -1,14 +1,14 @@
 WEAPONS = []
+ARMOR = []
 
 class Equipment():
     pass
 
 class Weapon():
-    def __init__(self, name, wp_type, atk, defense):
+    def __init__(self, name, wp_type, atk):
         self.name = name
         self.wp_type = wp_type
         self.atk = atk
-        self.defense = defense
         WEAPONS.append(self)
     
 
@@ -21,7 +21,19 @@ class Weapon():
 
 
 class Armor():
-    pass
+    def __init__(self, name, hp, mp, arm_type):
+        self.name = name
+        self.hp = hp
+        self.mp = mp
+        self.arm_type = arm_type
+        ARMOR.append(self)
+
+    def equip_item(self, unit):
+        unit.equipment['armor'] = self
+        unit.maxhp += self.hp
+        unit.maxmp += self.mp
+        print(f'{self.name} equipped')
+
 
 class Shield():
     pass
@@ -32,5 +44,8 @@ class Helm():
 class Shoes():
     pass
 
-longsword = Weapon('Longsword', 'sword', 10, 0)
-iron_sword = Weapon('Iron Sword', 'sword', 15, 0)
+longsword = Weapon('Longsword', 'Sword', 10)
+iron_sword = Weapon('Iron Sword', 'Sword', 15)
+leather = Armor('Leather Armor', 10, 0, 'Heavy Armor')
+linen_cur = Armor('Linen Cuirass', 20, 0, 'Heavy Armor')
+bronze_armor = Armor('Bronze Armor', 30, 0, 'Heavy Armor')

@@ -89,6 +89,8 @@ print(unit2.hp)
 
 abl.ABILITIES[0].learn_ability(unit1)
 eqt.WEAPONS[0].equip_item(unit1)
+eqt.ARMOR[2].equip_item(unit1)
+print(unit1.maxhp)
 
 unit1.report()
 print(eqt.WEAPONS)
