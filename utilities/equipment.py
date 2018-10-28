@@ -17,6 +17,7 @@ class Weapon():
 
     def equip_item(self, unit):
         unit.equipment['left'] = self
+        unit.strength += self.atk
         print(f'{self.name} equipped')
 
 

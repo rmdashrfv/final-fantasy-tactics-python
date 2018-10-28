@@ -1,2 +1,3 @@
 *.stackdump
 */__pycache__
+/.vscode
