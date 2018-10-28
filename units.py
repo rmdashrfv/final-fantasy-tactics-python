@@ -25,6 +25,7 @@ class Unit():
         self.exp = 0
         self.jp = 0
         self.ct = 5
+        self.move = 3
 
     def __repr__(self):
         return f'{self.name} >> {self.job} ({self.hp})HP'
