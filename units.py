@@ -1,7 +1,9 @@
 class Unit():
     def __init__(self, name):
         self.name = name
+        self.maxhp = 100
         self.hp = 100
+        self.maxmp = 50
         self.mp = 50
         self.strength = 30
         self.defense = 5
@@ -29,15 +31,15 @@ class Unit():
 
     def attack(self, target):
         dmg = self.strength - target.defense
-        target.hp - dmg
+        target.hp = target.hp - dmg
         print(f'{self.name} attacked {target.name}!')
-        print(f'{target.name} lost {dmg} HP')
-        if target.hp <= 0:
-            target.status = 'felled'
-            print(f'{target.name} has fallen!')
-        elif target.hp < target.hp / 2:
+        # print(f'{target.name} lost {dmg} HP')
+        if target.hp < (target.maxhp / 2) and target.hp > 0:
             target.status = 'critical'
             print(f'{target.name} is in critical condition!')
+        elif target.hp <= 0:
+            target.status = 'felled'
+            print(f'{target.name} has fallen!')
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass
@@ -55,5 +57,7 @@ unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 
 unit1.attack(unit2)
-unit1.change_job(Chemist())
-print(unit1.hp)
+unit1.attack(unit2)
+unit1.attack(unit2)
+unit1.attack(unit2)
+print(unit2.hp)
