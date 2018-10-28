@@ -23,6 +23,8 @@ class Unit():
     def change_job(self, new_job):
         old_job = str(self.job)
         self.job = str(new_job).upper()
+        self.hp = new_job.hp
+        self.mp = new_job.mp
         print(f'{self.name} changed jobs: {old_job} ---> {self.job}')
 
     def attack(self, target):
@@ -38,14 +40,15 @@ class Unit():
             print(f'{target.name} is in critical condition!')
 
 
-class Chemist(Unit):
+# Classes use inheritance to prevent me from writing all stats for each subclass
+class Chemist():
     def __init__(self):
-        super().hp -= 25
-        self.strength -= 3
-        self.defense += 10
+        self.hp = 75
+        self.strength = 15
+        self.defense = 3
+        self.mp = 15
 
-    def __repr__(self):
-        return(f'{self}')
+    
 
 
 unit1 = Unit('Ramza')
@@ -53,3 +56,4 @@ unit2 = Unit('Delita')
 
 unit1.attack(unit2)
 unit1.change_job(Chemist())
+print(unit1.hp)
