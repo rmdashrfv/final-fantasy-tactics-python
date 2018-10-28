@@ -1,5 +1,6 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
+print('modules loaded!\n.\n.\n.')
 
 class Unit():
     def __init__(self, name):
@@ -50,7 +51,7 @@ class Unit():
             print(f'{target.name} has fallen!')
 
     def report(self):
-        print(f'[{self.name}]\nEXP: {self.exp}\nJP: {self.jp}')
+        print(f'[{self.name}]\nLV: {self.level}\nEXP: {self.exp}\nJP: {self.jp}')
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass

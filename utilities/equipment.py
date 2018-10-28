@@ -1,5 +1,5 @@
 class Equipment():
-    print('Equipment class')
+    pass
 
 
 class Weapon():
@@ -15,13 +15,13 @@ class Weapon():
 
 
 class Armor():
-    print('armor')
+    pass
 
 class Shield():
-    print('shield')
+    pass
 
 class Helm():
-    print('helmet')
+    pass
 
 class Shoes():
-    print('shoes')
+    pass
