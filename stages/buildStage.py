@@ -11,11 +11,17 @@ class Stage():
     def create_stage(self, map_data):
         row_count = 1
         for data in map_data['schema']: # each array in schema
-            abc = list(string.ascii_uppercase) # need alphabet for each row
+            abc = list(string.ascii_uppercase) # new alphabet for each row
             for num in data:
                 tile_id = f'{str(abc.pop(0))}{str(row_count)}'
                 print(tile_id)
-                # tile = Tile()
+                if num == 0:
+                    terrain = 'void'
+                elif num == 1:
+                    terrain = 'Grass'
+                elif num == 2:
+                    terrain = 'Gravel'
+                tile = Tile(tile_id, 0, terrain)
             row_count += 1
 
 
