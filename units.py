@@ -28,6 +28,10 @@ class Unit():
         self.jp = 0
         self.ct = 5
         self.move = 3
+        self.position = {
+            'last_pos': None,
+            'current_pos': None
+        }
 
     def __repr__(self):
         return f'{self.name} >> {self.job} ({self.hp})HP'
@@ -54,6 +58,11 @@ class Unit():
 
     def report(self):
         print(f'[{self.name}]\nLV: {self.level}\nEXP: {self.exp}\nJP: {self.jp}')
+
+    def move(self, tile):
+        # need current_tile
+        # unit moves to a given tile
+        # need to determine distance
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass
