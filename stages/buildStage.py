@@ -14,7 +14,7 @@ class Stage():
             abc = list(string.ascii_uppercase) # new alphabet for each row
             for num in data:
                 tile_id = f'{str(abc.pop(0))}{str(row_count)}'
-                print(tile_id)
+                # print(tile_id)
                 if num == 0:
                     terrain = 'void'
                 elif num == 1:
@@ -22,6 +22,7 @@ class Stage():
                 elif num == 2:
                     terrain = 'Gravel'
                 tile = Tile(tile_id, 0, terrain)
+                stage.tiles.append(tile)
             row_count += 1
 
 
@@ -32,6 +33,7 @@ class Tile():
         self.terrain = terrain
         self.vacant = True
         self.traversable = True
+        self.unit = []
         self.effects = {}
 
     def has_effect(self):
@@ -39,7 +41,7 @@ class Tile():
         return bool(self.effects)
 
     def __repr__(self):
-        return f'{self.terrain} ({self.id})'
+        return f'({self.id}) {self.terrain}'
 
 
 # 0 = black, 1 = green, 2 = gray
@@ -68,3 +70,4 @@ def build_stage():
 t = Tile('A1', 0, 'Grass')
 
 stage.create_stage(stage1)
+print(stage.tiles)
