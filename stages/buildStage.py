@@ -1,14 +1,18 @@
 # dm is stage dimensions
+import string
 
 class Stage():
-    def __init__(self, name, tiles, size):
+    def __init__(self, name):
         self.name = name
-        self.tiles = tiles
-        self.size = size
+        self.tiles = []
+        self.info = {}
         self.units = []
 
-    def create_stage(map_data):
-        print(map_data)
+    def create_stage(self, map_data):
+        print(map_data['size'])
+        for data in map_data['schema']: # each array in schema
+            for x in data:
+                print(x)
 
 class Tile():
     def __init__(self, id, height, terrain):
@@ -18,6 +22,10 @@ class Tile():
         self.vacant = True
         self.traversable = True
         self.effects = {}
+
+    def has_effect(self):
+        # returns True if the tile has any effects
+        return bool(self.effects)
 
     def __repr__(self):
         return f'{self.terrain} ({self.id})'
@@ -41,7 +49,11 @@ stage2 = {
     'size': [5, 11]
 }
 
-stage = Stage('Mandalia Plains', stage1['schema'], stage1['size'])
+stage = Stage('Mandalia Plains')
 
 def build_stage():
     print('Stage loaded!')
+
+t = Tile('A1', 0, 'Grass')
+
+stage.create_stage(stage1)
