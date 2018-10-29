@@ -9,10 +9,15 @@ class Stage():
         self.units = []
 
     def create_stage(self, map_data):
-        print(map_data['size'])
+        row_count = 1
         for data in map_data['schema']: # each array in schema
-            for x in data:
-                print(x)
+            abc = list(string.ascii_uppercase) # need alphabet for each row
+            for num in data:
+                tile_id = f'{str(abc.pop(0))}{str(row_count)}'
+                print(tile_id)
+                # tile = Tile()
+            row_count += 1
+
 
 class Tile():
     def __init__(self, id, height, terrain):

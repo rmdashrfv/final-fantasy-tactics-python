@@ -19,3 +19,8 @@ do units belong to a given tile?
 - allow units to move on the stage
 - how to handle depth/height?
 - are tiles their own object or just dicts?
+
+
+### Building a stage
+take an array of the alphabet
+an array of numbers 1-26
