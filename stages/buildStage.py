@@ -67,7 +67,6 @@ stage = Stage('Mandalia Plains')
 def build_stage():
     print('Stage loaded!')
 
-t = Tile('A1', 0, 'Grass')
 
 stage.create_stage(stage1)
 print(stage.tiles)

@@ -78,7 +78,7 @@ def check_levels(unit):
     if unit.exp > 2 and unit.exp < 5:
         unit.level = 2
         print(f'{unit.name} leveled up!')
-    
+
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 
@@ -93,7 +93,7 @@ print(unit2.hp)
 abl.ABILITIES[0].learn_ability(unit1)
 eqt.WEAPONS[0].equip_item(unit1)
 
-unit1.report()
+build.stage.units.append(unit1)
 # print(unit1.equipment)
 # print(eqt.ARMOR)
 # print(unit1.equipment['left'])
