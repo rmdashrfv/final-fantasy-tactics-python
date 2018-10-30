@@ -1,7 +1,6 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
 from stages import buildStage as build
-build.build_stage()
 
 class Unit():
     def __init__(self, name):
@@ -27,7 +26,8 @@ class Unit():
         self.exp = 0
         self.jp = 0
         self.ct = 5
-        self.move = 3
+        self.move_range = 3
+        self.jump = 1
         self.position = {
             'last_pos': None,
             'current_pos': None
@@ -60,9 +60,43 @@ class Unit():
         print(f'[{self.name}]\nLV: {self.level}\nEXP: {self.exp}\nJP: {self.jp}')
 
     def move(self, tile):
+        # on stageload set last_pos and current_pos
         # need current_tile
         # unit moves to a given tile
         # need to determine distance
+        # check if tile occupied and traversable
+        tile_id = tile.tile_id
+        coords = self.position['current_pos']
+        # self.position['last_pos'] = tile_id
+        if coords[0] is tile_id[0]:
+            print('Moving down')
+            x_distance = 0
+        else:
+            print('Moving across')
+            x_distance = ord(coords[0]) - ord(tile_id[0])
+
+        if coords[1] is tile_id[1]:
+            print('Moving up')
+            y_distance = 0
+        else:
+            print('x')
+            y_distance = int(coords[1]) - int(tile_id[1])
+
+        distance = abs(x_distance) + abs(y_distance)
+        print(f'{self.name} moving {distance} places')
+
+        if distance > self.move_range:
+            print('You can\'t move that far')
+
+        tile.vacant = False
+        tile.unit.append(self)
+
+        # calculate distance
+        # if distance > self.move:
+            # ....
+        # update current position
+        self.position['current_pos'] = tile_id
+        print(self.position)
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass
@@ -99,10 +133,13 @@ unit1.attack(unit2)
 unit1.attack(unit2)
 print(unit2.hp)
 
-abl.ABILITIES[0].learn_ability(unit1)
-eqt.WEAPONS[0].equip_item(unit1)
-
+# abl.ABILITIES[0].learn_ability(unit1)
+# eqt.WEAPONS[0].equip_item(unit1)
 build.stage.units.append(unit1)
+print(build.stage.tiles[7].tile_id)
+unit1.position['current_pos'] = build.stage.tiles[0].tile_id
+unit1.move(build.stage.tiles[7])
+build.stage.tiles[7].info()
 # print(unit1.equipment)
 # print(eqt.ARMOR)
 # print(unit1.equipment['left'])

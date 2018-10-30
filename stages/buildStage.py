@@ -27,8 +27,8 @@ class Stage():
 
 
 class Tile():
-    def __init__(self, id, height, terrain):
-        self.id = id # ex. A1, B5, etc
+    def __init__(self, tile_id, height, terrain):
+        self.tile_id = tile_id # ex. A1, B5, etc
         self.height = 0
         self.terrain = terrain
         self.vacant = True
@@ -40,8 +40,11 @@ class Tile():
         # returns True if the tile has any effects
         return bool(self.effects)
 
+    def info(self):
+        print(f'POS: {self.tile_id}\nTYPE: {self.terrain}\nUNIT: {self.unit[0]}')
+
     def __repr__(self):
-        return f'({self.id}) {self.terrain}'
+        return f'({self.tile_id}) {self.terrain}'
 
 
 # 0 = black, 1 = green, 2 = gray
@@ -63,10 +66,6 @@ stage2 = {
 }
 
 stage = Stage('Mandalia Plains')
-
-def build_stage():
-    print('Stage loaded!')
-
 
 stage.create_stage(stage1)
 print(stage.tiles)
