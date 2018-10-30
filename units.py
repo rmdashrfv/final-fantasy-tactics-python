@@ -60,6 +60,7 @@ class Unit():
         print(f'[{self.name}]\nLV: {self.level}\nEXP: {self.exp}\nJP: {self.jp}')
 
     def move(self, tile):
+        # make sure a unit can't move off the screen!!!
         # on stageload set last_pos and current_pos
         # need current_tile
         # unit moves to a given tile
@@ -67,6 +68,8 @@ class Unit():
         # check if tile occupied and traversable
         tile_id = tile.tile_id
         coords = self.position['current_pos']
+        # go_around is the additonal dist a unit must walk in the event of a height differential
+        go_around = 0
         # self.position['last_pos'] = tile_id
         if coords[0] is tile_id[0]:
             print('Moving down')
@@ -74,6 +77,12 @@ class Unit():
         else:
             print('Moving across')
             x_distance = ord(coords[0]) - ord(tile_id[0])
+            # FIRST CHECK Hdiffs on the destination tile
+            # check each tile within this range
+            # if x_distance is pos check if tiles to the right have a Left Hdiff
+            # else (neg) check if tiles to the left have a Right Hdiff
+            # check jump height here
+                # if there is a
 
         if coords[1] is tile_id[1]:
             print('Moving up')
@@ -81,8 +90,9 @@ class Unit():
         else:
             print('x')
             y_distance = int(coords[1]) - int(tile_id[1])
+            # check for top and bottom borders
 
-        distance = abs(x_distance) + abs(y_distance)
+        distance = abs(x_distance) + abs(y_distance) # add go_around
         print(f'{self.name} moving {distance} places')
 
         if distance > self.move_range:

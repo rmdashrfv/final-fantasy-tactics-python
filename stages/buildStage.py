@@ -28,11 +28,12 @@ class Stage():
 
 class Tile():
     def __init__(self, tile_id, height, terrain):
+        # height differentials in directions
         self.tile_id = tile_id # ex. A1, B5, etc
         self.height = 0
         self.terrain = terrain
         self.vacant = True
-        self.traversable = True
+        self.traversable = True # false = impassable
         self.unit = []
         self.effects = {}
 

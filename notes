@@ -1,0 +1,46 @@
+# Stages
+
+### What I thought
+
+
+### How I solved it
+
+
+
+# Map Height
+
+Each tile on the map has his
+
+### What I thought
+
+Use a dict with the keys relating to the direction of the diff
+check to see if the keys in a dict have any true or false
+
+Later, I thought about setting in the invalid routes a unit could take
+into the stage itself and then checking against that. I would then
+compare each step of a path to each sequence to ensure that a step in the path
+was not in an INVALID_MOVES list
+
+### How I solved it
+
+Upon initialization give each tile a key that pertains to the
+directions of the height borders around the tile itself.
+
+First check the height differentials of the destination tile
+if there are none, great.
+
+If there are diffs, look for a side without diffs. defined as OPEN.
+initialize variable for the traversable tile the unit would need to
+cross in order to arrive
+
+first check x axis movement. If there is none and the destination tile has the same col,
+check for a top or bottom border
+
+if there is, look for the open side, store dist_so_far as a variable.
+from there, shift to the column that is on the open side.
++1 to distance traveled
+
+from there, immediately check y_distance
+move on y_axis til it matches destination y_axis
+
+finally, check x_axis movement again
