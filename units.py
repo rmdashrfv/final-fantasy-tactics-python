@@ -14,7 +14,6 @@ class Unit():
         self.maxmp = 50
         self.mp = 50
         self.strength = 30
-        self.defense = 5
         self.status = 'alive'
         self.job = 'Squire'
         self.speed = 10
@@ -30,8 +29,8 @@ class Unit():
         self.exp = 0
         self.jp = 0
         self.ct = 5
-        self.move_range = 3
-        self.jump = 1
+        self.move_range = 4
+        self.jump = 3
         self.bravery = randint(60, 95)
         self.faith = randint(60, 95)
         self.position = {
@@ -49,8 +48,12 @@ class Unit():
         self.mp = new_job.mp
         print(f'{self.name} changed jobs: {old_job} ---> {self.job}')
 
+    def map_stats(self, job):
+        # map the stats of the job to the unit
+        pass
+
     def attack(self, target):
-        dmg = self.strength - target.defense
+        dmg = self.strength
         target.hp = target.hp - dmg
         print(f'{self.name} attacked {target.name}!')
         reward_units(self, target)
