@@ -1,10 +1,12 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
 from stages import buildStage as build
+from random import randint
 
 class Unit():
-    def __init__(self, name):
+    def __init__(self, name, **kwargs):
         self.name = name
+        self.gender = kwargs.get('gender', 'M')
         self.maxhp = 100
         self.hp = 100
         self.maxmp = 50
@@ -28,6 +30,8 @@ class Unit():
         self.ct = 5
         self.move_range = 3
         self.jump = 1
+        self.bravery = randint(60, 95)
+        self.faith = randint(60, 95)
         self.position = {
             'last_pos': None,
             'current_pos': None
@@ -134,6 +138,7 @@ def check_levels(unit):
 
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
+unit3 = Unit('Agrias', gender='F')
 
 
 # eqt.ARMOR[2].equip_item(unit2)
@@ -150,6 +155,7 @@ print(build.stage.tiles[7].tile_id)
 unit1.position['current_pos'] = build.stage.tiles[0].tile_id
 unit1.move(build.stage.tiles[7])
 build.stage.tiles[7].info()
+print(unit3.gender)
 # print(unit1.equipment)
 # print(eqt.ARMOR)
 # print(unit1.equipment['left'])

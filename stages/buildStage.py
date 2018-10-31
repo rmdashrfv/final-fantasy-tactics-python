@@ -34,6 +34,7 @@ class Tile():
         self.terrain = terrain
         self.vacant = True
         self.traversable = True # false = impassable
+        self.height_diff = ''
         self.unit = []
         self.effects = {}
 
@@ -51,6 +52,8 @@ class Tile():
 # 0 = black, 1 = green, 2 = gray
 # traverse tiles = 1, 2
 # obstacle tiles = 0
+# include mapping for borders of height
+# remember all possible height diff combinations
 # include mapping for positioning -- A-Z for cols, 1-26 for rows
 # at any moment, you should be able to call a unit's current_pos
 # tiles do have properties
