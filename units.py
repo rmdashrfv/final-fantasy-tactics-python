@@ -3,6 +3,8 @@ from utilities import equipment as eqt
 from stages import buildStage as build
 from random import randint
 
+# Changing jobs should be like equipping a Job
+
 class Unit():
     def __init__(self, name, **kwargs):
         self.name = name
@@ -114,12 +116,19 @@ class Unit():
 
 
 # Classes use inheritance to prevent me from writing all stats for each subclass
-class Chemist():
-    def __init__(self):
+class Chemist(Unit):
+    def __init__(self, name):
+        super().__init__(name)
         self.hp = 75
+        self.maxhp = 75
         self.strength = 15
         self.defense = 3
         self.mp = 15
+        self.job = 'Chemist'
+
+class Job():
+    def __init__(self, name):
+        pass
 
 
 def reward_units(unit1, unit2):
@@ -136,7 +145,7 @@ def check_levels(unit):
         unit.level = 2
         print(f'{unit.name} leveled up!')
 
-unit1 = Unit('Ramza')
+unit1 = Chemist('Ramza')
 unit2 = Unit('Delita')
 unit3 = Unit('Agrias', gender='F')
 
