@@ -72,4 +72,4 @@ stage2 = {
 stage = Stage('Mandalia Plains')
 
 stage.create_stage(stage1)
-print(stage.tiles)
+# print(stage.tiles)

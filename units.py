@@ -29,7 +29,7 @@ class Unit():
         }
         self.level = 1
         self.exp = 0
-        self.jp = 0
+        self.jp = {}
         self.ct = 5
         self.move_range = 4
         self.jump = 3
@@ -39,6 +39,8 @@ class Unit():
             'last_pos': None,
             'current_pos': None
         }
+        # set squire jp
+        self.jp['Squire'] = 0
 
     def __repr__(self):
         return f'{self.name} >> {self.job} ({self.hp})HP'
@@ -47,6 +49,9 @@ class Unit():
         old_job = str(self.job)
         self.job = new_job.name
         self.main_skills = new_job.discipline
+        # check if key is in units Job points dict
+        if self.job not in self.jp.keys():
+            self.jp[self.job] = 0
         # map_stats()
         self.maxhp = new_job.maxhp
         self.maxmp = new_job.maxmp
@@ -135,6 +140,11 @@ def reward_units(unit1, unit2):
     unit1.exp += exp_reward
     check_levels(unit1)
 
+def reward_jp(unit):
+    reward = 10
+    unit.jp[unit.job] += reward
+    print(f'+{reward}JP >> Total: {unit.jp[unit.job]}')
+
 
 def check_levels(unit):
     if unit.exp > 2 and unit.exp < 5:
@@ -155,6 +165,7 @@ print(unit2.hp)
 
 # abl.ABILITIES[0].learn_ability(unit1)
 # eqt.WEAPONS[0].equip_item(unit1)
+reward_jp(unit1)
 unit1.change_job(jobs.JOBS['Chemist'])
 print(unit1.report())
 build.stage.units.append(unit1)
@@ -163,6 +174,11 @@ unit1.position['current_pos'] = build.stage.tiles[0].tile_id
 unit1.move(build.stage.tiles[7])
 build.stage.tiles[7].info()
 print(unit3.gender)
+reward_jp(unit1)
+unit1.change_job(jobs.JOBS['Squire'])
+reward_jp(unit1)
+reward_jp(unit1)
+print(unit1.jp)
 # print(unit1.equipment)
 # print(eqt.ARMOR)
 # print(unit1.equipment['left'])
