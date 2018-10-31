@@ -39,7 +39,6 @@ class Unit():
             'last_pos': None,
             'current_pos': None
         }
-        # set squire jp
         self.jp['Squire'] = 0
 
     def __repr__(self):
