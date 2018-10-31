@@ -1,5 +1,6 @@
 from utilities import abilities as abl
 from utilities import equipment as eqt
+from utilities import jobs
 from stages import buildStage as build
 from random import randint
 
@@ -44,9 +45,11 @@ class Unit():
 
     def change_job(self, new_job):
         old_job = str(self.job)
-        self.job = str(new_job).upper()
-        self.hp = new_job.hp
-        self.mp = new_job.mp
+        self.job = new_job.name
+        self.main_skills = new_job.discipline
+        # map_stats()
+        self.maxhp = new_job.maxhp
+        self.maxmp = new_job.maxmp
         print(f'{self.name} changed jobs: {old_job} ---> {self.job}')
 
     def map_stats(self, job):
@@ -67,7 +70,12 @@ class Unit():
             print(f'{target.name} has fallen!')
 
     def report(self):
-        print(f'[{self.name}]\nLV: {self.level}\nEXP: {self.exp}\nJP: {self.jp}')
+        print('----------------------------------------------------------')
+        print('NAME   | LEVEL | EXP | JOB  | HP  | MP  | SKILL')
+        print('----------------------------------------------------------')
+        print(f'[{self.name}] | {self.level} | {self.exp} | {self.job} | {self.maxhp} | {self.maxmp} | {self.main_skills} |')
+        print('----------------------------------------------------------')
+
 
     def move(self, tile):
         # make sure a unit can't move off the screen!!!
@@ -119,22 +127,6 @@ class Unit():
         print(self.position)
 
 
-# Classes use inheritance to prevent me from writing all stats for each subclass
-class Chemist(Unit):
-    def __init__(self, name):
-        super().__init__(name)
-        self.hp = 75
-        self.maxhp = 75
-        self.strength = 15
-        self.defense = 3
-        self.mp = 15
-        self.job = 'Chemist'
-
-class Job():
-    def __init__(self, name):
-        pass
-
-
 def reward_units(unit1, unit2):
     if unit1.level == unit2.level:
         exp_reward = 1
@@ -149,7 +141,7 @@ def check_levels(unit):
         unit.level = 2
         print(f'{unit.name} leveled up!')
 
-unit1 = Chemist('Ramza')
+unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 unit3 = Unit('Agrias', gender='F')
 
@@ -163,6 +155,8 @@ print(unit2.hp)
 
 # abl.ABILITIES[0].learn_ability(unit1)
 # eqt.WEAPONS[0].equip_item(unit1)
+unit1.change_job(jobs.JOBS['Chemist'])
+print(unit1.report())
 build.stage.units.append(unit1)
 print(build.stage.tiles[7].tile_id)
 unit1.position['current_pos'] = build.stage.tiles[0].tile_id
