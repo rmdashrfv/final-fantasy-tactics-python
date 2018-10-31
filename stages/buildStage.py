@@ -29,7 +29,9 @@ class Stage():
             for tile in stage.tiles:
                 if tile.tile_id in list(map_data['heights'].keys()):
                     print(f'Found {tile}')
-
+                    tile.height_diff = map_data['heights'][tile.tile_id]
+                    print(f'Assigning height to {tile.tile_id}')
+                    print(tile.height_diff)
 
 
 class Tile():
