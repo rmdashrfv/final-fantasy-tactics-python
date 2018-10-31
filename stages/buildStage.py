@@ -24,6 +24,12 @@ class Stage():
                 tile = Tile(tile_id, 0, terrain)
                 stage.tiles.append(tile)
             row_count += 1
+        if map_data['dm'] == '3D':
+            print('Building Z Axis')
+            for tile in stage.tiles:
+                if tile.tile_id in list(map_data['heights'].keys()):
+                    print(f'Found {tile}')
+
 
 
 class Tile():
@@ -61,7 +67,19 @@ stage1 = {
     'schema': [[2, 2, 2, 0, 1, 1, 1, 1, 2, 2, 2, 1],
                [1, 1, 2, 0, 0, 1, 2, 0, 1, 1, 1, 1],
                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]],
-    'size': [12, 13]
+    'size': [12, 13],
+    'dm': '2D',
+    'heights': {}
+}
+
+stageTest = {
+    'schema': [[2, 2, 2, 0, 1],
+               [1, 2, 1, 0, 1],
+               [1, 2, 1, 1, 2],
+               [1, 1, 2, 0, 2]],
+    'size': [5, 4],
+    'dm': '3D',
+    'heights': {'A1': 'TRBz3', 'B1': 'Lz3', 'B2': 'LBz3'}
 }
 
 stage2 = {
@@ -71,5 +89,5 @@ stage2 = {
 
 stage = Stage('Mandalia Plains')
 
-stage.create_stage(stage1)
-# print(stage.tiles)
+stage.create_stage(stageTest)
+print(stage.tiles)
