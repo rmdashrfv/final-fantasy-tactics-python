@@ -16,6 +16,7 @@ class Unit():
         self.strength = 30
         self.status = 'alive'
         self.job = 'Squire'
+        self.main_skills = 'Fundaments'
         self.speed = 10
         self.abilities = []
         self.equipment = {
