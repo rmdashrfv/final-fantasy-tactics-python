@@ -30,8 +30,12 @@ class Stage():
                 if tile.tile_id in list(map_data['heights'].keys()):
                     print(f'Found {tile}')
                     tile.height_diff = map_data['heights'][tile.tile_id]
-                    print(f'Assigning height to {tile.tile_id}')
-                    print(tile.height_diff)
+                    # print(f'Assigning height to {tile.tile_id}')
+                    # print(f'BEFORE: {tile.tile_id} height: {tile.height}')
+                    tile.height = tile.height_diff.split('z')[1]
+                    # print(tile.height_diff.split('z')[1])
+                    print(f'AFTER: {tile.tile_id} height: {tile.height}')
+                    tile.height_diff = tile.height_diff.split('z')[0]
 
 
 class Tile():
@@ -51,7 +55,7 @@ class Tile():
         return bool(self.effects)
 
     def info(self):
-        print(f'POS: {self.tile_id}\nTYPE: {self.terrain}\nUNIT: {self.unit[0]}')
+        print(f'POS: {self.tile_id}\nTYPE: {self.terrain}\nUNIT: {self.unit[0] or "Empty"}\nKEY: {self.height_diff}')
 
     def __repr__(self):
         return f'({self.tile_id}) {self.terrain}'
