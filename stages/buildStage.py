@@ -96,6 +96,6 @@ stage2 = {
 stage = Stage('Mandalia Plains')
 
 stage.create_stage(stageTest)
-t = stage.tiles[0]
-print(t.info())
+# t = stage.tiles[0]
+# print(t.info())
 # print(stage.tiles)

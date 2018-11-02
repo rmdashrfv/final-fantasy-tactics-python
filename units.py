@@ -93,12 +93,21 @@ class Unit():
         # go_around is the additonal dist a unit must walk in the event of a height differential
         go_around = 0
         # self.position['last_pos'] = tile_id
+        # given a tile, A1 / TRBz3
         if coords[0] is tile_id[0]:
-            print('Moving up or  down')
+            print('Not moving left or right')
             x_distance = 0
         else:
-            print('Moving across')
             x_distance = ord(coords[0]) - ord(tile_id[0])
+            print('x dist is', x_distance)
+            if x_distance > 0:
+                x_dir = 'left'
+                print('Moving left')
+            else:
+                x_dir = 'right'
+                print('Moving right')
+            # x_dir = 'left' if x_distance < 0 else 'right'
+
             # FIRST CHECK Hdiffs on the destination tile
             # check each tile within this range
             # if x_distance is pos check if tiles to the right have a Left Hdiff
@@ -107,12 +116,18 @@ class Unit():
                 # if there is a
 
         if coords[1] is tile_id[1]:
-            print('Moving up')
+            print('not moving up or down')
             y_distance = 0
         else:
-            print('x')
             y_distance = int(coords[1]) - int(tile_id[1])
             # check for top and bottom borders
+
+        if y_distance > 0:
+            y_dir = 'north'
+            print('moving north')
+        else:
+            y_dir = 'south'
+            print('moving south')
 
         distance = abs(x_distance) + abs(y_distance) # add go_around
         print(f'{self.name} moving {distance} places')
@@ -156,28 +171,29 @@ unit3 = Unit('Agrias', gender='F')
 
 
 # eqt.ARMOR[2].equip_item(unit2)
-unit1.attack(unit2)
-unit1.attack(unit2)
-unit1.attack(unit2)
-unit1.attack(unit2)
-print(unit2.hp)
+# unit1.attack(unit2)
+# unit1.attack(unit2)
+# unit1.attack(unit2)
+# unit1.attack(unit2)
+# print(unit2.hp)
 
 # abl.ABILITIES[0].learn_ability(unit1)
 # eqt.WEAPONS[0].equip_item(unit1)
-reward_jp(unit1)
-unit1.change_job(jobs.JOBS['Chemist'])
+# reward_jp(unit1)
+# unit1.change_job(jobs.JOBS['Chemist'])
 print(unit1.report())
-build.stage.units.append(unit1)
-print(build.stage.tiles[7].tile_id)
-unit1.position['current_pos'] = build.stage.tiles[0].tile_id
-unit1.move(build.stage.tiles[7])
-build.stage.tiles[7].info()
-print(unit3.gender)
-reward_jp(unit1)
-unit1.change_job(jobs.JOBS['Squire'])
-reward_jp(unit1)
-reward_jp(unit1)
-print(unit1.jp)
+# build.stage.units.append(unit1)
+unit1.position['current_pos'] = build.stage.tiles[15].tile_id
+print('current position is', unit1.position['current_pos'])
+print('Moving to', build.stage.tiles[0].tile_id)
+unit1.move(build.stage.tiles[0])
+# build.stage.tiles[1].info()
+# print(unit3.gender)
+# reward_jp(unit1)
+# unit1.change_job(jobs.JOBS['Squire'])
+# reward_jp(unit1)
+# reward_jp(unit1)
+# print(unit1.jp)
 # print(unit1.equipment)
 # print(eqt.ARMOR)
 # print(unit1.equipment['left'])
