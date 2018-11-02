@@ -94,7 +94,7 @@ class Unit():
         go_around = 0
         # self.position['last_pos'] = tile_id
         if coords[0] is tile_id[0]:
-            print('Moving down')
+            print('Moving up or  down')
             x_distance = 0
         else:
             print('Moving across')

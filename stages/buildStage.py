@@ -55,7 +55,7 @@ class Tile():
         return bool(self.effects)
 
     def info(self):
-        print(f'POS: {self.tile_id}\nTYPE: {self.terrain}\nUNIT: {self.unit[0]}\nKEY: {self.height_diff}')
+        return f'<< TILE: {self.tile_id}\n   TYPE: {self.terrain}\n   UNIT: {self.unit or "vacant"}\n   KEY: {self.height_diff}\n   HEIGHT: {self.height} >>'
 
     def __repr__(self):
         return f'({self.tile_id}) {self.terrain}'
@@ -96,5 +96,6 @@ stage2 = {
 stage = Stage('Mandalia Plains')
 
 stage.create_stage(stageTest)
-stage.tiles[0].info()
-# print(stage.tiles[0].info())
+t = stage.tiles[0]
+print(t.info())
+# print(stage.tiles)

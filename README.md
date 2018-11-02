@@ -19,6 +19,8 @@ do units belong to a given tile?
 - allow units to move on the stage
 - how to handle depth/height?
 - are tiles their own object or just dicts?
+- change repr functions to be Python expressions
+- add str data model methods
 
 
 ### Building a stage
