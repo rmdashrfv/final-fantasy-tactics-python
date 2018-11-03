@@ -15,15 +15,7 @@ do units belong to a given tile?
 
 ## Next
 
-- build a stage
 - allow units to move on the stage
-- how to handle depth/height?
-- are tiles their own object or just dicts?
 - change repr functions to be Python expressions
 - add str data model methods
 - units have a way that they are facing!!!
-
-
-### Building a stage
-take an array of the alphabet
-an array of numbers 1-26
