@@ -85,7 +85,7 @@ stageTest = {
                [1, 1, 2, 0, 2]],
     'size': [5, 4],
     'dm': '3D',
-    'heights': {'A1': 'TRBz3', 'B1': 'Lz3', 'B2': 'LBz3'}
+    'heights': {'A1': 'BLz3', 'B1': 'Lz3', 'B2': 'LBz3'}
 }
 
 stage2 = {

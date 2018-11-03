@@ -1,0 +1,12 @@
+build a path from the current_pos to the destination
+
+default movement is x then y
+
+then y then x
+
+store path in a list
+find a path
+
+incorrect_paths = 0
+
+count them out

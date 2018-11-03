@@ -1,0 +1,36 @@
+A1 B1 C1 D1 E1
+A2 B2 C2 D2 E2
+A3 B3 C3 D3 E3
+A4 B4 C4 D4 E4
+
+{'A1': 'BLz3', 'B1': 'Lz3', 'B2': 'LBz3'}
+
+first check all open sides of the tile.
+   return open-facing tiles as adj_tiles
+   check if move_range is possible to adj_tiles
+
+
+
+How to find adjacent tiles
+
+also standard attack range
+north -4
+right +1
+left  -1
+down  +4
+
+adjacent = {u: r: d: l:}
+
+first path: x-axis -> y-axis
+if that doesnt work ...
+   which side of dest does not have border?
+check L and R border
+
+
+check open side
+   move unit to first adjacent open tile
+   subtract go_around
+   see if unit has enough left to move to dest
+
+if you're moving on y axis, it will be x-adjacent
+if moving on x axis, it should be y-adjacent

@@ -129,6 +129,11 @@ class Unit():
             y_dir = 'south'
             print('moving south')
 
+        if y_dir == 'north' and 'B' in tile.height_diff:
+            print('You can\'t go that way')
+        elif y_dir == 'south' and 'T' in tile.height_diff:
+            print('You can\'t go this way either')
+
         distance = abs(x_distance) + abs(y_distance) # add go_around
         print(f'{self.name} moving {distance} places')
 
@@ -183,10 +188,10 @@ unit3 = Unit('Agrias', gender='F')
 # unit1.change_job(jobs.JOBS['Chemist'])
 print(unit1.report())
 # build.stage.units.append(unit1)
-unit1.position['current_pos'] = build.stage.tiles[15].tile_id
+unit1.position['current_pos'] = build.stage.tiles[17].tile_id
 print('current position is', unit1.position['current_pos'])
-print('Moving to', build.stage.tiles[0].tile_id)
-unit1.move(build.stage.tiles[0])
+print('Moving to', build.stage.tiles[6].tile_id)
+unit1.move(build.stage.tiles[6])
 # build.stage.tiles[1].info()
 # print(unit3.gender)
 # reward_jp(unit1)
