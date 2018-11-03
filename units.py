@@ -82,18 +82,15 @@ class Unit():
 
 
     def move(self, tile):
-        # make sure a unit can't move off the screen!!!
-        # on stageload set last_pos and current_pos
-        # need current_tile
-        # unit moves to a given tile
-        # need to determine distance
-        # check if tile occupied and traversable
         tile_id = tile.tile_id
-        coords = self.position['current_pos']
-        # go_around is the additonal dist a unit must walk in the event of a height differential
+        path = []
         go_around = 0
-        # self.position['last_pos'] = tile_id
-        # given a tile, A1 / TRBz3
+        if tile.traversable == False or len(tile.unit) == 1:
+            return print('You cannot move to this position')
+
+        coords = self.position['current_pos']
+        # check x path 1
+
         if coords[0] is tile_id[0]:
             print('Not moving left or right')
             x_distance = 0
@@ -190,8 +187,8 @@ print(unit1.report())
 # build.stage.units.append(unit1)
 unit1.position['current_pos'] = build.stage.tiles[17].tile_id
 print('current position is', unit1.position['current_pos'])
-print('Moving to', build.stage.tiles[6].tile_id)
-unit1.move(build.stage.tiles[6])
+print('Moving to', build.stage.tiles[18].tile_id)
+unit1.move(build.stage.tiles[18])
 # build.stage.tiles[1].info()
 # print(unit3.gender)
 # reward_jp(unit1)

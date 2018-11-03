@@ -8,7 +8,17 @@ A4 B4 C4 D4 E4
 first check all open sides of the tile.
    return open-facing tiles as adj_tiles
    check if move_range is possible to adj_tiles
+   for tile in adj_tiles
 
+
+check if dest has any obstr
+  if it does, get open sides
+
+Go x until you hit a an obstacle or until column is the same as dest
+   then start going y until you hit an obstacle
+
+^ This doesn't work if paths on the way have obstruction
+I need to build a full pathfinder
 
 
 How to find adjacent tiles

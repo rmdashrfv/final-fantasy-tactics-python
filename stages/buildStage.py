@@ -16,12 +16,13 @@ class Stage():
                 tile_id = f'{str(abc.pop(0))}{str(row_count)}'
                 # print(tile_id)
                 if num == 0:
-                    terrain = 'void'
+                    tile = Tile(tile_id, 0, 'Void')
+                    tile.traversable = False
                 elif num == 1:
                     terrain = 'Grass'
+                    tile = Tile(tile_id, 0, 'Grass')
                 elif num == 2:
-                    terrain = 'Gravel'
-                tile = Tile(tile_id, 0, terrain)
+                    tile = Tile(tile_id, 0, 'Gravel')
                 stage.tiles.append(tile)
             row_count += 1
         if map_data['dm'] == '3D':
