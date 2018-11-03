@@ -12,10 +12,10 @@ while battleTime and turn_count < 100:
             print("It's your turn, ", unit.name)
             act = input(f'What will you do, {unit.name}?\n{choices}')
             if act == '2':
+                unit.ct -= 55
                 target = input('Where will you attack? N/S/E/W?')
                 if target == 'N':
                     unit.attack(field.tiles[0])
-                    unit.ct -= 55
             elif act == '3':
                 print('waiting ...')
                 unit.ct -= 25
