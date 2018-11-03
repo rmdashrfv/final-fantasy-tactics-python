@@ -15,7 +15,10 @@ do units belong to a given tile?
 
 ## Next
 
-- allow units to move on the stage
+- untis take turns
+
+
+- allow only valid movements on a stage
 - change repr functions to be Python expressions
 - add str data model methods
 - units have a way that they are facing!!!

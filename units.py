@@ -60,7 +60,11 @@ class Unit():
         # map the stats of the job to the unit
         pass
 
-    def attack(self, target):
+    def attack(self, tile):
+        if not bool(tile.unit):
+            return print("Missed!")
+
+        target = tile.unit[0]
         dmg = self.strength
         target.hp = target.hp - dmg
         print(f'{self.name} attacked {target.name}!')
@@ -170,13 +174,13 @@ def check_levels(unit):
 unit1 = Unit('Ramza')
 unit2 = Unit('Delita')
 unit3 = Unit('Agrias', gender='F')
+ALL_UNITS = []
+ALL_UNITS.append(unit1)
+ALL_UNITS.append(unit3)
+ALL_UNITS.append(unit2)
 
 
 # eqt.ARMOR[2].equip_item(unit2)
-# unit1.attack(unit2)
-# unit1.attack(unit2)
-# unit1.attack(unit2)
-# unit1.attack(unit2)
 # print(unit2.hp)
 
 # abl.ABILITIES[0].learn_ability(unit1)
@@ -187,6 +191,7 @@ print(unit1.report())
 # build.stage.units.append(unit1)
 unit1.position['current_pos'] = build.stage.tiles[17].tile_id
 print('current position is', unit1.position['current_pos'])
+unit1.attack(build.stage.tiles[16])
 print('Moving to', build.stage.tiles[18].tile_id)
 unit1.move(build.stage.tiles[18])
 # build.stage.tiles[1].info()
