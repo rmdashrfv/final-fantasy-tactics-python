@@ -90,7 +90,7 @@ class Unit():
         path = []
         go_around = 0
         if tile.traversable == False or len(tile.unit) == 1:
-            return print('You cannot move to this position')
+            return print('Please select a tile within movement range.')
 
         coords = self.position['current_pos']
         # check x path 1

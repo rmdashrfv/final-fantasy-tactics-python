@@ -1,5 +1,7 @@
 ABILITIES = []
 
+
+# action, reaction, support, movement
 class Ability():
     def __init__(self, name, damage, rng, jp_cost, mp_cost, ct_cost):
         self.name = name
@@ -20,5 +22,12 @@ class Ability():
     def who_can_use(self):
             return self.units
 
+# range 0 = the person using the ability
+# FUNDAMENTS
+# Damage=PhysicalAttackx(randomnumberfrom1toPWR)
 # name, damage, rng, jp_cost, mp_cost, ct_cost
-throw_stone = Ability('Throw Stone', 10, 3, 10, 0, 5)
+throw_stone = Ability('Throw Stone', 10, 4, 10, 0, 5)
+accumulate = Ability('Accumulate', 0, 0, 0, 0, 5)
+tailwind = Ability('Tailwind', 1, 3, 0, 0, 5) # only available to Ramza
+
+#

@@ -19,7 +19,7 @@ class Job():
 
 job = Job('Squire', maxhp=100)
 job = Job('Chemist', maxhp=70, disc='Item', move_range=3)
-job = Job('Knight', maxhp=110, disc='Arts of War')
+job = Job('Knight', maxhp=120, disc='Arts of War')
 job = Job('Archer', maxhp=100, disc='Aim')
 job = Job('White Mage', maxhp=100, disc='White Magick')
 job = Job('Black Mage', maxhp=100, disc='Black Magick')
