@@ -1,4 +1,11 @@
-# README
+# Final Fantasy Tactics - Command Line Edition
+
+Final Fantasy Tactics is a JRPG in which battles take place on chessboard-like stages and characters are moved around like chess pieces.
+I thought it'd be fun to recreate the mechanics of this game in several languages (this one being Python) as an exercise to force me to
+use as many aspects of the Python language as possible.  
+
+At this point most of the mechanics have been set up, and battles can take place in a way similar to CTB battle system in the original
+FFT game. Sometime in the future, I'll work on making navigating the map more user-friendly (as user-friendly as you can make the CLI anyway).  
 
 At the end of every battle reset the attack and defense stats on units  
 All other stats will persist
