@@ -19,7 +19,6 @@ class Stage():
                     tile = Tile(tile_id, 0, 'Void')
                     tile.traversable = False
                 elif num == 1:
-                    terrain = 'Grass'
                     tile = Tile(tile_id, 0, 'Grass')
                 elif num == 2:
                     tile = Tile(tile_id, 0, 'Gravel')

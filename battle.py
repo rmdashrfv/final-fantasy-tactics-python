@@ -15,6 +15,7 @@ while battleTime and turn_count < 100:
                 unit.ct -= 55
                 target = input('Where will you attack? N/S/E/W?')
                 if target == 'N':
+                    standing = unit.position['current_pos']
                     unit.attack(field.tiles[0])
             elif act == '3':
                 print('waiting ...')
@@ -25,5 +26,7 @@ while battleTime and turn_count < 100:
                 choice = input(f'Select a tile by entering its location.\n {unit.name}\'s move range: {unit.move_range}')
                 # unit.move(field)
                 unit.position['current_pos'] = choice
+
+                # check if all units on a side are dead
     print(turn_count)
     turn_count += 1
