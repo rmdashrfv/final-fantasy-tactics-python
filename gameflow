@@ -1,0 +1,20 @@
+user starts game
+
+ask for main character name
+
+generate enemies
+
+display battle conditions
+
+add battle events as messages to a MessageQueue class 
+
+output what's happening during NPC turns
+
+after each turn check if any foes have a status of 'alive' or incapacitated==False
+
+===
+
+before battle, add ALLIES and add FOES
+when a unit dies, remove them from their team
+if ALLIES length reaches 0: game over == True
+if FOES length reaches 0: display VICTORY
