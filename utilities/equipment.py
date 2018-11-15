@@ -55,6 +55,8 @@ iron_sword = Weapon('Iron Sword', 'Sword', 15)
 leather = Armor('Leather Armor', 10, 0, 'Heavy')
 linen_cur = Armor('Linen Cuirass', 20, 0, 'Heavy')
 bronze_armor = Armor('Bronze Armor', 30, 0, 'Heavy')
+leather = Armor('Chain Mail', 40, 0, 'Heavy')
+linen_cur = Armor('Mythril', 50, 0, 'Heavy')
 
 longbow = Weapon('Long Bow', 'Bow', 4)
 silverbow = Weapon('Silver Bow', 'Bow', 5)
