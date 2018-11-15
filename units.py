@@ -2,7 +2,9 @@ from utilities import abilities as abl
 from utilities import equipment as eqt
 from utilities import jobs
 from stages import buildStage as build
+from generators.characters import PEOPLE, generate_characters
 from random import randint
+print(len(PEOPLE))
 
 # Changing jobs should be like equipping a Job
 
@@ -178,6 +180,10 @@ ALL_UNITS = []
 ALL_UNITS.append(unit1)
 ALL_UNITS.append(unit3)
 ALL_UNITS.append(unit2)
+
+combatants = generate_characters(PEOPLE, Unit)
+print(f'Enemy Units: {combatants[1]}')
+print(f'Ally Units: {combatants[0]}')
 
 
 # eqt.ARMOR[2].equip_item(unit2)

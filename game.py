@@ -12,5 +12,7 @@ def savegame():
                  (date text, trans text, symbol text, qty real, price real)''')
 
 
+
+
 # create a game table
 # game table has fkeys to: party, and stores the name of the main character
