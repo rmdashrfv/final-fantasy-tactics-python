@@ -1,3 +1,5 @@
+from time import sleep
+
 def greet(func):
     def wrap(n):
         print('Now you can decorate ... ')
@@ -11,10 +13,14 @@ def hola(n):
 
 user = "Michael"
 
-hola(user)
+# hola(user)
+
+# def typewrite(func):
+#     def wrap(script):
+        
 
 
-'''
+script = '''
 
 def my_decorator(func):
     def wrapper():
@@ -30,3 +36,7 @@ def say_whee():
 say_whee()
 
 '''
+
+for line in list(script):
+    print(line, end='')
+    sleep(0.005)
