@@ -44,9 +44,7 @@ class Stage():
 
     def display_stage(self):
         '''Show the stages tiles that are actually traversable.'''
-        # print(self.board)
         col_count = 0
-        row_count = 0
         display = ''
         for k,v in self.board:
             if 'Void' in self.board[k + v].terrain:

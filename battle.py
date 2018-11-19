@@ -24,10 +24,18 @@ def start_battle():
                 elif act == '1':
                     unit.ct -= 35
                     # choice = input('Select a tile and press X to move there.')
+                    print(f'''===============\n
+                        {field.display_stage()}
+                    ''')
                     choice = input(f'Select a tile by entering its location.\n {unit.name}\'s move range: {unit.move_range}')
                     # unit.move(field)
+                    if choice not in field.board.keys():
+                        print('Please select a tile within range')
+                        choice = input(f'Select a tile by entering its location.\n {unit.name}\'s move range: {unit.move_range}')
                     unit.position['current_pos'] = choice
 
                     # check if all units on a side are dead
         print(turn_count)
         turn_count += 1
+
+start_battle()
