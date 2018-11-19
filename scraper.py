@@ -17,7 +17,7 @@ user = "Michael"
 
 # def typewrite(func):
 #     def wrap(script):
-        
+
 
 
 script = '''
