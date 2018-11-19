@@ -5,8 +5,10 @@ class Stage():
     def __init__(self, name):
         self.name = name
         self.tiles = []
+        self.size = []
         self.info = {}
         self.units = []
+        self.board = {}
 
     def create_stage(self, map_data):
         row_count = 1
@@ -22,6 +24,7 @@ class Stage():
                     tile = Tile(tile_id, 0, 'Grass')
                 elif num == 2:
                     tile = Tile(tile_id, 0, 'Gravel')
+                stage.board[tile_id] = tile
                 stage.tiles.append(tile)
             row_count += 1
         if map_data['dm'] == '3D':
@@ -36,6 +39,26 @@ class Stage():
                     # print(tile.height_diff.split('z')[1])
                     # print(f'AFTER: {tile.tile_id} height: {tile.height}')
                     tile.height_diff = tile.height_diff.split('z')[0]
+        stage.size = map_data['size']
+        # print(stage.board)
+
+    def display_stage(self):
+        '''Show the stages tiles that are actually traversable.'''
+        # print(self.board)
+        col_count = 0
+        row_count = 0
+        display = ''
+        for k,v in self.board:
+            if 'Void' in self.board[k + v].terrain:
+                display += ' x '
+            else:
+                display += f'{self.board[k + v].tile_id} '
+            col_count += 1
+            if col_count == self.size[0]:
+                display += '\n'
+                col_count = 0
+        print(display)
+
 
 
 class Tile():
@@ -96,6 +119,7 @@ stage2 = {
 stage = Stage('Mandalia Plains')
 
 stage.create_stage(stageTest)
+stage.display_stage()
 # t = stage.tiles[0]
 # print(t.info())
 # print(stage.tiles)
