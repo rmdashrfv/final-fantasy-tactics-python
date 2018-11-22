@@ -22,7 +22,8 @@ PEOPLE = [
     {'name': 'Sibyl', 'gender': 'F'},
     {'name': 'Vincent', 'gender': 'M'},
     {'name': 'Wilham', 'gender': 'M'},
-    {'name': 'Zell', 'gender': 'M'}
+    {'name': 'Zell', 'gender': 'M'},
+    {'name': 'Chloe', 'gender': 'F'}
 ]
 
 def generate_characters(people, unit):
@@ -36,7 +37,7 @@ def generate_characters(people, unit):
         good_guys += 1
         if good_guys > 4:
             break
-        
+
     bad_guys = 0
     for person in people:
         char = unit(person['name'], gender=person['gender'])
@@ -46,4 +47,3 @@ def generate_characters(people, unit):
             break
 
     return [allies, enemies]
-        

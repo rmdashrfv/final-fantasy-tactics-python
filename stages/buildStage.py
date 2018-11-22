@@ -8,7 +8,7 @@ class Stage():
         self.size = []
         self.info = {}
         self.units = []
-        self.board = {}
+        self.board = {} # change this to layout
 
     def create_stage(self, map_data):
         row_count = 1
@@ -56,6 +56,9 @@ class Stage():
                 display += '\n'
                 col_count = 0
         print(display)
+
+    def __repr__(self):
+        return f'<_{self.name} Stage_>'
 
 
 

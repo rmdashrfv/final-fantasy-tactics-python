@@ -44,7 +44,7 @@ class Unit():
         self.jp['Squire'] = 0
 
     def __repr__(self):
-        return f'{self.name} >> {self.job} ({self.hp})HP'
+        return f'{self.name} ({self.job})'
 
     def change_job(self, new_job):
         old_job = str(self.job)
@@ -182,6 +182,7 @@ ALL_UNITS.append(unit3)
 ALL_UNITS.append(unit2)
 
 combatants = generate_characters(PEOPLE, Unit)
+print(combatants)
 print(f'Enemy Units: {combatants[1]}')
 print(f'Ally Units: {combatants[0]}')
 
@@ -193,13 +194,13 @@ print(f'Ally Units: {combatants[0]}')
 # eqt.WEAPONS[0].equip_item(unit1)
 # reward_jp(unit1)
 # unit1.change_job(jobs.JOBS['Chemist'])
-print(unit1.report())
+# print(unit1.report())
 # build.stage.units.append(unit1)
-unit1.position['current_pos'] = build.stage.tiles[17].tile_id
-print('current position is', unit1.position['current_pos'])
-unit1.attack(build.stage.tiles[16])
-print('Moving to', build.stage.tiles[18].tile_id)
-unit1.move(build.stage.tiles[18])
+# unit1.position['current_pos'] = build.stage.tiles[17].tile_id
+# print('current position is', unit1.position['current_pos'])
+# unit1.attack(build.stage.tiles[16])
+# print('Moving to', build.stage.tiles[18].tile_id)
+# unit1.move(build.stage.tiles[18])
 # build.stage.tiles[1].info()
 # print(unit3.gender)
 # reward_jp(unit1)
