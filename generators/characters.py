@@ -33,7 +33,7 @@ def generate_characters(people, unit):
     for person in people:
         char = unit(person['name'], gender=person['gender'])
         allies.append(char)
-        people.pop()
+        people.pop(good_guys)
         good_guys += 1
         if good_guys > 4:
             break
@@ -41,6 +41,7 @@ def generate_characters(people, unit):
     bad_guys = 0
     for person in people:
         char = unit(person['name'], gender=person['gender'])
+        people.pop(-bad_guys)
         enemies.append(char)
         bad_guys += 1
         if bad_guys > 4:
