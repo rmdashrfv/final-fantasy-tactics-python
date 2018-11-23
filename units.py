@@ -87,6 +87,25 @@ class Unit():
         print('----------------------------------------------------------')
 
 
+    def acting(self):
+        # display main ability from job and then
+        # anything else the unit has learned from one other
+        # job. Then transition to choose_ability for the
+        # selected discipline.
+
+        choice = input(f'''
+        ## CHOOSE ONE ##
+
+        1) Attack
+        2) {jobs.JOBS[self.job].discipline}
+        \n
+        ''')
+        return choice
+
+    def choose_ability(self):
+        pass
+
+
     def move(self, tile):
         tile_id = tile.tile_id
         path = []
@@ -190,7 +209,7 @@ combatants = generate_characters(PEOPLE, Unit)
 # abl.ABILITIES[0].learn_ability(unit1)
 # eqt.WEAPONS[0].equip_item(unit1)
 # reward_jp(unit1)
-# unit1.change_job(jobs.JOBS['Chemist'])
+# unit1.change_job(C)
 # print(unit1.report())
 # build.stage.units.append(unit1)
 # unit1.position['current_pos'] = build.stage.tiles[17].tile_id

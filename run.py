@@ -56,6 +56,7 @@ def start_battle(allies, enemies):
                 print("It's your turn, ", unit.name)
                 act = input(f'What will you do, {unit.name}?\n{choices}')
                 if act == '2':
+                    # unit.acting()
                     unit.ct -= 55
                     target = input('Where will you attack? N/S/E/W?')
                     if target == 'N':
