@@ -28,10 +28,10 @@ class Stage():
                 stage.tiles.append(tile)
             row_count += 1
         if map_data['dm'] == '3D':
-            print('Building Z Axis')
+            # print('Building Z Axis')
             for tile in stage.tiles:
                 if tile.tile_id in list(map_data['heights'].keys()):
-                    print(f'Found {tile}')
+                    # print(f'Found {tile}')
                     tile.height_diff = map_data['heights'][tile.tile_id]
                     # print(f'Assigning height to {tile.tile_id}')
                     # print(f'BEFORE: {tile.tile_id} height: {tile.height}')
@@ -55,7 +55,7 @@ class Stage():
             if col_count == self.size[0]:
                 display += '\n'
                 col_count = 0
-        print(display)
+        # print(display)
 
     def __repr__(self):
         return f'<_{self.name} Stage_>'
@@ -120,7 +120,6 @@ stage2 = {
 stage = Stage('Mandalia Plains')
 
 stage.create_stage(stageTest)
-stage.display_stage()
 # t = stage.tiles[0]
 # print(t.info())
 # print(stage.tiles)
