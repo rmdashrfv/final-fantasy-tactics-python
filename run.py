@@ -10,13 +10,14 @@ print("Modules loaded successfully!")
 
 unit1 = Unit('Ramza')
 unit2 = Unit('Agrias', gender='F')
+unit3 = Unit('Delita')
 stage = buildStage.stage
 
 # tile example = stage.board[tile_id]
 print(stage.board['A1'])
-allies = [unit1]
+allies = [unit1, unit3]
 enemies = [unit2]
-all_units = [unit1, unit2]
+all_units = [unit1, unit2, unit3]
 
 def check_survivors(good, bad):
     dead_good_units = 0
@@ -62,10 +63,13 @@ def start_battle(allies, enemies):
                         unit.attack(stage.tiles[0])
                 elif act == '3':
                     print('waiting ...\n\n')
-                    enemies[0].hp -= 25
-                    print(enemies[0].hp)
-                    if enemies[0].hp == 0:
-                        enemies[0].status = 'felled'
+                    allies[0].hp -= 25
+                    print(allies[0].hp)
+                    if allies[0].hp <= 0:
+                        allies[0].status = 'felled'
+                        allies[1].hp -= 30
+                        if allies[1].hp <= 0:
+                            allies[1].status = 'felled'
                     unit.ct -= 25
                 elif act == '1':
                     unit.ct -= 35
@@ -83,9 +87,9 @@ def start_battle(allies, enemies):
                 turn_count += 1
         if check_survivors(allies, enemies) == 'YOU ARE VICTORIOUS':
             print(victory_msg)
-            break
+            battleTime = False
         elif check_survivors(allies, enemies) == 'GAME OVER':
             print(defeat_msg)
-            break
+            battleTime = False
         else:
             pass
