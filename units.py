@@ -87,7 +87,7 @@ class Unit():
         print('----------------------------------------------------------')
 
 
-    def acting(self):
+    def acting(self, jobs):
         # display main ability from job and then
         # anything else the unit has learned from one other
         # job. Then transition to choose_ability for the
