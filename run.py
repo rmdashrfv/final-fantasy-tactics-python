@@ -44,7 +44,7 @@ defeat_msg = '''GAME OVER ...'''
 
 
 
-def start_battle():
+def start_battle(allies, enemies):
     battleTime = True
     turn_count = 0
     choices = "[ 1 = 'Move' | 2 = 'Act' | 3 = 'Wait' | 4 = 'Status' ]\n"
@@ -59,30 +59,33 @@ def start_battle():
                     target = input('Where will you attack? N/S/E/W?')
                     if target == 'N':
                         standing = unit.position['current_pos']
-                        unit.attack(field.tiles[0])
+                        unit.attack(stage.tiles[0])
                 elif act == '3':
                     print('waiting ...\n\n')
-                    unit2.hp -= 25
+                    enemies[0].hp -= 25
+                    print(enemies[0].hp)
+                    if enemies[0].hp == 0:
+                        enemies[0].status = 'felled'
                     unit.ct -= 25
                 elif act == '1':
                     unit.ct -= 35
                     # choice = input('Select a tile and press X to move there.')
                     print(f'''===============\n
-                        {field.display_stage()}
+                        {stage.display_stage()}
                     ''')
                     choice = input(f'Select a tile by entering its location.\n {unit.name}\'s move range: {unit.move_range}')
-                    # unit.move(field)
-                    if choice not in field.board.keys():
+                    # unit.move(stage)
+                    if choice not in stage.board.keys():
                         print('Please select a tile within range')
                         choice = input(f'Select a tile by entering its location.\n {unit.name}\'s move range: {unit.move_range}')
                     unit.position['current_pos'] = choice
 
                 turn_count += 1
-                if check_survivors(allies, enemies) == 'YOU ARE VICTORIOUS':
-                    print(victory_msg)
-                    break
-                elif check_survivors(allies, enemies) == 'GAME OVER':
-                    print(defeat_msg)
-                    break
-                else:
-                    pass
+        if check_survivors(allies, enemies) == 'YOU ARE VICTORIOUS':
+            print(victory_msg)
+            break
+        elif check_survivors(allies, enemies) == 'GAME OVER':
+            print(defeat_msg)
+            break
+        else:
+            pass
