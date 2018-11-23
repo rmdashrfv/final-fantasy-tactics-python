@@ -63,13 +63,6 @@ def start_battle(allies, enemies):
                         unit.attack(stage.tiles[0])
                 elif act == '3':
                     print('waiting ...\n\n')
-                    allies[0].hp -= 25
-                    print(allies[0].hp)
-                    if allies[0].hp <= 0:
-                        allies[0].status = 'felled'
-                        allies[1].hp -= 30
-                        if allies[1].hp <= 0:
-                            allies[1].status = 'felled'
                     unit.ct -= 25
                 elif act == '1':
                     unit.ct -= 35
