@@ -5,6 +5,7 @@ ABILITIES = []
 class Ability():
     def __init__(self, name, damage, rng, jp_cost, mp_cost, ct_cost):
         self.name = name
+        self.discipline = None
         self.params = {
             'dmg': damage,
             'rng': rng,
@@ -21,6 +22,9 @@ class Ability():
 
     def who_can_use(self):
             return self.units
+
+    def __repr__(self):
+        return f'{self.name} ({self.discipline})'
 
 # range 0 = use this on yourself
 # FUNDAMENTS
