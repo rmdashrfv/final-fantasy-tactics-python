@@ -1,3 +1,5 @@
+from abilities import ABILITIES as abl
+print(abl)
 JOBS = {}
 
 class Job():

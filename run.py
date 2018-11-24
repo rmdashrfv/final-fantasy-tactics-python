@@ -54,18 +54,20 @@ def start_battle(allies, enemies):
             unit.ct += unit.speed
             if unit.ct >= 100:
                 print("It's your turn, ", unit.name)
-                act = input(f'What will you do, {unit.name}?\n{choices}')
-                if act == '2':
-                    unit.acting(jobs)
+                decision = input(f'What will you do, {unit.name}?\n{choices}')
+                if decision == '2':
+                    action = unit.acting(jobs)
                     unit.ct -= 55
-                    # target = input('Where will you attack? N/S/E/W?')
+                    if int(action) == 1:
+                        target = input('Where will you attack? N/S/E/W?')
+                        unit.attack(target)
                     # if target == 'N':
                     #     standing = unit.position['current_pos']
                     #     unit.attack(stage.tiles[0])
-                elif act == '3':
+                elif decision == '3':
                     print('waiting ...\n\n')
                     unit.ct -= 25
-                elif act == '1':
+                elif decision == '1':
                     unit.ct -= 35
                     # choice = input('Select a tile and press X to move there.')
                     print(f'''===============\n

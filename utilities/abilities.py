@@ -22,13 +22,12 @@ class Ability():
     def who_can_use(self):
             return self.units
 
-# range 0 = the person using the ability
+# range 0 = use this on yourself
 # FUNDAMENTS
 # Damage=PhysicalAttackx(randomnumberfrom1toPWR)
 # name, damage, rng, jp_cost, mp_cost, ct_cost
-throw_stone = Ability('Throw Stone', 10, 4, 10, 0, 5)
-throw_stone = Ability('Throw Stone', 10, 4, 10, 0, 5)
-accumulate = Ability('Accumulate', 0, 0, 0, 0, 5)
-tailwind = Ability('Tailwind', 1, 3, 0, 0, 5) # only available to Ramza
+throw_stone = Ability('Throw Stone', damage=10, rng=4, jp_cost=10, mp_cost=0, ct_cost=5)
+accumulate = Ability('Accumulate', damage=0, rng=0, jp_cost=0, mp_cost=0, ct_cost=5)
+tailwind = Ability('Tailwind', damage=1, rng=3, jp_cost=0, mp_cost=0, ct_cost=5) # only available to Ramza
 
 #
