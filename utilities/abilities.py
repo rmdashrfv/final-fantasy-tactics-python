@@ -5,12 +5,15 @@ class Discipline():
     def __init__(self, name):
         self.name = name
         self.abilities = {
-            'action': {[]},
-            'reaction':  {[]},
-            'support': {[]},
-            'movement': {[]}
+            'action': {},
+            'reaction':  {},
+            'support': {},
+            'movement': {}
         }
         DISCIPLINES[name] = self
+
+    def __repr__(self):
+        return f'{self.name}'
 
 
 # action, reaction, support, movement
@@ -45,4 +48,17 @@ throw_stone = Ability('Throw Stone', damage=10, rng=4, jp_cost=10, mp_cost=0, ct
 accumulate = Ability('Accumulate', damage=0, rng=0, jp_cost=0, mp_cost=0, ct_cost=5)
 tailwind = Ability('Tailwind', damage=1, rng=3, jp_cost=0, mp_cost=0, ct_cost=5) # only available to Ramza
 
+disciplines = "Fundaments, Item, Arts of War, Aim, White Magick, Black Magick, Martial Arts, Time Magick, Summon, Steal, Speechcraft, Mystic Arts, Geomancy, Jump, Iaido, Throw, Arithmeticks, Mystic Arts, Bardsong, Dance, Mimic, Darkness, Huntcraft"
+
+for disc in disciplines.split(', '):
+    new_discipline = Discipline(disc)
+    print(disc)
 #
+del disc
+
+print(DISCIPLINES)
+
+for abl in ABILITIES:
+    DISCIPLINES['Fundaments'].abilities['action'][abl.name] = abl
+
+print(DISCIPLINES['Fundaments'].abilities['action'].keys())
