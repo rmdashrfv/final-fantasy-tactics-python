@@ -1,11 +1,22 @@
+DISCIPLINES = {}
 ABILITIES = []
+
+class Discipline():
+    def __init__(self, name):
+        self.name = name
+        self.abilities = {
+            'action': {[]},
+            'reaction':  {[]},
+            'support': {[]},
+            'movement': {[]}
+        }
+        DISCIPLINES[name] = self
 
 
 # action, reaction, support, movement
 class Ability():
     def __init__(self, name, damage, rng, jp_cost, mp_cost, ct_cost):
         self.name = name
-        self.discipline = None
         self.params = {
             'dmg': damage,
             'rng': rng,
